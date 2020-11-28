@@ -18,6 +18,7 @@
             iframe.src = $scope.url
             iframe.width = "600"
             iframe.height = "400"
+            iframe.allow="camera;microphone"
             document.getElementById("main").appendChild(iframe)
 
             Email.send({
