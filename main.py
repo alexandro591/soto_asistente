@@ -19,14 +19,14 @@ def videoGame(e):
 def videoCall(e):
     try:
         if path.exists("/home/pi/soto_hmi/videocall.html"):
-            subprocess.check_call('sensible-browser /home/pi/soto_hmi/videocall.html'.split(" "))
+            subprocess.Popen('sensible-browser /home/pi/soto_hmi/videocall.html'.split(" "))
         else:
-            subprocess.check_call('sensible-browser videocall.html'.split(" "))
+            subprocess.Popen('sensible-browser videocall.html'.split(" "))
     except:
-        subprocess.check_call('sensible-browser videocall.html'.split(" "))
-    subprocess.call('pkill python'.split(" "))
+        subprocess.Popen('sensible-browser videocall.html'.split(" "))
+    subprocess.Popen('pkill python'.split(" "))
 def calendar(e):
-    subprocess.check_call('sensible-browser https://www.google.com/calendar'.split(" "))
+    subprocess.Popen('sensible-browser https://www.google.com/calendar'.split(" "))
 
 app = Tk()
 app.geometry(str(W) + "x" + str(H))
