@@ -99,7 +99,51 @@ x = x+45
 
 P = Button(app, text = "P", height = 1, width = 2)
 P.place(x=x, y=y)
+
+x = 550
+y = 250
+
+#####################################################
+A = Button(app, text = "A", height = 1, width = 2)
+A.place(x=x, y=y)
 x = x+45
+
+S = Button(app, text = "S", height = 1, width = 2)
+S.place(x=x, y=y)
+x = x+45
+
+D = Button(app, text = "D", height = 1, width = 2)
+D.place(x=x, y=y)
+x = x+45
+
+F = Button(app, text = "F", height = 1, width = 2)
+F.place(x=x, y=y)
+x = x+45
+
+G = Button(app, text = "G", height = 1, width = 2)
+G.place(x=x, y=y)
+x = x+45
+
+H = Button(app, text = "H", height = 1, width = 2)
+H.place(x=x, y=y)
+x = x+45
+
+J = Button(app, text = "J", height = 1, width = 2)
+J.place(x=x, y=y)
+x = x+45
+
+K = Button(app, text = "K", height = 1, width = 2)
+K.place(x=x, y=y)
+x = x+45
+
+L = Button(app, text = "L", height = 1, width = 2)
+L.place(x=x, y=y)
+x = x+45
+
+_N = Button(app, text = "Ñ", height = 1, width = 2)
+_N.place(x=x, y=y)
+x = x+45
+
 
 
 
