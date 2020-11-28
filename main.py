@@ -1,6 +1,7 @@
 import subprocess
 from tkinter import *
 from PIL import Image, ImageTk
+from os import path
 
 W = 1020
 H = 532
@@ -16,7 +17,13 @@ def videoGame(e):
     except:
         subprocess.check_call('python3 tic-tac-toe/main.py'.split(" "))
 def videoCall(e):
-    print("hello2")
+    try:
+        if path.exists("/home/pi/soto_hmi/tic-tac-toe/videocall.html"):
+            subprocess.check_call('sensible-browser /home/pi/soto_hmi/tic-tac-toe/videocall.html'.split(" "))
+        else:
+            subprocess.check_call('sensible-browser videocall.html'.split(" "))
+    except:
+        subprocess.check_call('sensible-browser videocall.html'.split(" "))
 
 app = Tk()
 app.geometry(str(W) + "x" + str(H))

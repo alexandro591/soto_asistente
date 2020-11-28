@@ -1,6 +1,9 @@
 import subprocess
 from tkinter import *
+from tkinter import messagebox
 from PIL import Image, ImageTk
+import json
+import fileinput
 
 W = 1020
 H = 532
@@ -288,11 +291,55 @@ email_radio.place(x=200, y=460)
 
 ###########################################################
 
-save = Button(app, text = "Guardar", height = 1, width = 20, command = lambda : save())
-save.place(x=680, y=400)
+def replace_line(file_name, line_num, text):
+    lines = open(file_name, 'r').readlines()
+    lines[line_num] = text
+    out = open(file_name, 'w')
+    out.writelines(lines)
+    out.close()
 
-_exit = Button(app, text = "Salir", height = 1, width = 20, command = lambda : _exit())
-_exit.place(x=680, y=430)
+def save():
+    if (name.get() == "" or email.get() == "" or phone.get() == ""):
+        messagebox.showerror(title="Parámetros incompletos", message="Por favor ingrese todos los parámetros que se muestran.")
+        return
+    
+    try:
+        with open("contacts.json") as contactsFile:
+            contactsJson = json.load(contactsFile)
+            contactsFile.close()
+    except:
+        contactsJson = {}
+
+
+    contactsJson[email.get()] = {
+        "name" : name.get(),
+        "email" : email.get(),
+        "phone" : phone.get()
+    }
+    i = 0
+    with open("videocall.html") as search:
+        for line in search:
+            line = line.rstrip()  # remove '\n' at end of line
+            if "    //start contacts" == line:
+                break
+            i = i+1
+    search.close()
+    replace_line("videocall.html", i+1, "var contacts =" + json.dumps(contactsJson) + "\n")
+
+    with open("contacts.json", 'w') as contactsFile:
+        contactsFile.write(json.dumps(contactsJson))
+        contactsFile.close()
+    
+    messagebox.showinfo("Contacto guardo con éxito", "Tu contacto ha sido guardado exitosamente.")
+
+def _exit():
+    exit()
+
+saveButton = Button(app, text = "Guardar", height = 1, width = 20, command = lambda : save())
+saveButton.place(x=680, y=400)
+
+_exitButton = Button(app, text = "Salir", height = 1, width = 20, command = lambda : _exit())
+_exitButton.place(x=680, y=430)
 
 app.mainloop()
 

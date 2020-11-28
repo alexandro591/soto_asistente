@@ -1,0 +1,74 @@
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+<script>
+    angular.module('videoCaller', [])
+    .controller('videoCallerController', function($scope) {
+        $scope.contacts = contacts;
+        $scope.contactSelected = null
+        $scope.url = ""
+        $scope.setValues = ()=> {
+            $scope.name = JSON.parse($scope.contactSelected).name
+            $scope.email = JSON.parse($scope.contactSelected).email
+            $scope.phone = JSON.parse($scope.contactSelected).phone
+        }
+        $scope.startConversation = ()=> {
+            $scope.url = $scope.email
+            $scope.url = "https://gotalk.to/" + $scope.url.replace(/\@/g,"").replace(/\./g,"").replace(/\-/g,"").replace(/\@/g,"_")+parseInt(Math.random()*999)
+            var iframe = document.createElement("iframe")
+            iframe.src = $scope.url
+            iframe.width = "600"
+            iframe.height = "400"
+            document.getElementById("main").appendChild(iframe)
+
+            Email.send({
+                Host : "smtp.gmail.com",
+                port : 587,
+                Username : "notifymelocalhost@gmail.com",
+                Password : "elhuevo5910",
+                To : $scope.email,
+                ssl: false,
+                use_authentication: true,
+                From : "notifymelocalhost@gmail.com",
+                Subject : "Video llamada de soto asistente",
+                Body : "Hola, podrías reunirte conmigo? El link de la reunión es el siguiente: " + $scope.url
+            }).then((message) =>
+                console.log(message)
+            );
+
+            
+        }
+    });
+</script>
+<script>
+    //start contacts
+var contacts ={"alexandrotapiaflores@gmail.com": {"name": "alexandro", "email": "alexandrotapiaflores@gmail.com", "phone": "0987654321"}, "juanse@gmail.com": {"name": "juan", "email": "juanse@gmail.com", "phone": "1234567890"}, "elhuevo@gmail.com": {"name": "elhuevo", "email": "elhuevo@gmail.com", "phone": "123456"}, "alex@gmail.com": {"name": "eltapia591", "email": "alex@gmail.com", "phone": "123456789"}, "jeje@gmail.com": {"name": "jeje", "email": "jeje@gmail.com", "phone": "123456"}}
+</script>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div ng-app="videoCaller">
+            <div ng-controller="videoCallerController" id = "main">
+
+                <select ng-model="contactSelected" ng-change="setValues()">
+                    <option ng-selected="{{operator.value == contact}}"
+                    ng-repeat="contact in contacts"
+                    value="{{contact}}"
+                    >
+                        {{contact.name}}
+                    </option>
+                </select>
+                <button ng-if = "contactSelected" ng-click = "startConversation()">
+                    enviar invitación a {{name}} con la dirección de correo {{email}}
+                </button>
+
+                <br><br>
+            </div>
+        </div>
+    </body>
+</html>
+
