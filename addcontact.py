@@ -58,10 +58,50 @@ email.place(x=200, y=320)
 
 ###################################### TECLADO ####################################
 
+x = 550
+y = 220
+
 Q = Button(app, text = "Q", height = 1, width = 2)
-Q.place(x=600, y=220)
-Q = Button(app, text = "W", height = 1, width = 2)
-Q.place(x=645, y=220)
+Q.place(x=x, y=y)
+x = x+45
+
+W = Button(app, text = "W", height = 1, width = 2)
+W.place(x=x, y=y)
+x = x+45
+
+E = Button(app, text = "E", height = 1, width = 2)
+E.place(x=x, y=y)
+x = x+45
+
+R = Button(app, text = "R", height = 1, width = 2)
+R.place(x=x, y=y)
+x = x+45
+
+T = Button(app, text = "T", height = 1, width = 2)
+T.place(x=x, y=y)
+x = x+45
+
+Y = Button(app, text = "Y", height = 1, width = 2)
+Y.place(x=x, y=y)
+x = x+45
+
+U = Button(app, text = "U", height = 1, width = 2)
+U.place(x=x, y=y)
+x = x+45
+
+I = Button(app, text = "I", height = 1, width = 2)
+I.place(x=x, y=y)
+x = x+45
+
+O = Button(app, text = "O", height = 1, width = 2)
+O.place(x=x, y=y)
+x = x+45
+
+P = Button(app, text = "P", height = 1, width = 2)
+P.place(x=x, y=y)
+x = x+45
+
+
 
 app.mainloop()
 
