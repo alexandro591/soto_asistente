@@ -292,7 +292,7 @@ save = Button(app, text = "Guardar", height = 1, width = 20, command = lambda : 
 save.place(x=680, y=400)
 
 _exit = Button(app, text = "Salir", height = 1, width = 20, command = lambda : _exit())
-_exit.place(x=680, y=400)
+_exit.place(x=680, y=430)
 
 app.mainloop()
 
