@@ -34,7 +34,7 @@ entry_name = Label(app, text="Nombre", font=("Helvetica", 12), fg = "white")
 entry_name.configure(anchor="center", background='black')
 entry_name.place(x=200, y=200)
 
-name = Entry(app)
+name = Entry(app, width = 20)
 name.place(x=200, y=220)
 ######################################
 
@@ -43,7 +43,7 @@ entry_name = Label(app, text="Teléfono", font=("Helvetica", 12), fg = "white")
 entry_name.configure(anchor="center", background='black')
 entry_name.place(x=200, y=250)
 
-phone = Entry(app)
+phone = Entry(app, width = 20)
 phone.place(x=200, y=270)
 ######################################
 
@@ -52,7 +52,7 @@ entry_name = Label(app, text="Correo", font=("Helvetica", 12), fg = "white")
 entry_name.configure(anchor="center", background='black')
 entry_name.place(x=200, y=300)
 
-email = Entry(app)
+email = Entry(app, width = 20)
 email.place(x=200, y=320)
 ######################################
 
