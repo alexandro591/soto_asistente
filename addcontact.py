@@ -4,6 +4,7 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import json
 import fileinput
+from os import path
 
 W = 1020
 H = 532
@@ -304,9 +305,14 @@ def save():
         return
     
     try:
-        with open("contacts.json") as contactsFile:
-            contactsJson = json.load(contactsFile)
-            contactsFile.close()
+        if path.exists("/home/pi/soto_hmi/contacts.json"):
+            with open("/home/pi/soto_hmi/contacts.json") as contactsFile:
+                contactsJson = json.load(contactsFile)
+                contactsFile.close()
+        else:
+            with open("contacts.json") as contactsFile:
+                contactsJson = json.load(contactsFile)
+                contactsFile.close()
     except:
         contactsJson = {}
 
@@ -317,18 +323,36 @@ def save():
         "phone" : phone.get()
     }
     i = 0
-    with open("videocall.html") as search:
-        for line in search:
-            line = line.rstrip()  # remove '\n' at end of line
-            if "    //start contacts" == line:
-                break
-            i = i+1
-    search.close()
-    replace_line("videocall.html", i+1, "var contacts =" + json.dumps(contactsJson) + "\n")
+    if path.exists("/home/pi/soto_hmi/videocall.html"):
+        with open("/home/pi/soto_hmi/videocall.html") as search:
+            for line in search:
+                line = line.rstrip()  # remove '\n' at end of line
+                if "    //start contacts" == line:
+                    break
+                i = i+1
+    else:
+        with open("videocall.html") as search:
+            for line in search:
+                line = line.rstrip()  # remove '\n' at end of line
+                if "    //start contacts" == line:
+                    break
+                i = i+1
 
-    with open("contacts.json", 'w') as contactsFile:
-        contactsFile.write(json.dumps(contactsJson))
-        contactsFile.close()
+    search.close()
+
+    if path.exists("/home/pi/soto_hmi/videocall.html"):
+        replace_line("/home/pi/soto_hmi/videocall.html", i+1, "var contacts =" + json.dumps(contactsJson) + "\n")
+    else:
+        replace_line("videocall.html", i+1, "var contacts =" + json.dumps(contactsJson) + "\n")
+
+    if path.exists("/home/pi/soto_hmi/contacts.json"):
+        with open("/home/pi/soto_hmi/contacts.json", 'w') as contactsFile:
+            contactsFile.write(json.dumps(contactsJson))
+            contactsFile.close()
+    else:
+        with open("contacts.json", 'w') as contactsFile:
+            contactsFile.write(json.dumps(contactsJson))
+            contactsFile.close()
     
     messagebox.showinfo("Contacto guardo con éxito", "Tu contacto ha sido guardado exitosamente.")
 
