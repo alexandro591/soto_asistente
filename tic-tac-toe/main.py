@@ -20,7 +20,7 @@ class Tic_Tac_Toe():
     def __init__(self):
         self.window = Tk()
         self.window.title('Tres en raya')
-        self.canvas = Canvas(self.window, width=size_of_board+400, height=size_of_board)
+        self.canvas = Canvas(self.window, width=size_of_board, height=size_of_board)
         self.canvas.pack()
         # Input from user in form of clicks
         self.window.bind('<Button-1>', self.click)
