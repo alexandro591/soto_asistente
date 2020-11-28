@@ -24,6 +24,9 @@ def videoCall(e):
             subprocess.check_call('sensible-browser videocall.html'.split(" "))
     except:
         subprocess.check_call('sensible-browser videocall.html'.split(" "))
+    subprocess.check_call('pkill python'.split(" "))
+def calendar(e):
+    subprocess.check_call('sensible-browser https://www.google.com/calendar'.split(" "))
 
 app = Tk()
 app.geometry(str(W) + "x" + str(H))
@@ -53,7 +56,7 @@ logo_label.place(x=W/2-55, y=80)
 ######################################
 command_name_label = Label(app, text="Añadir un contacto", font=("Helvetica", 12), fg = "white")
 command_name_label.configure(anchor="center", background='black')
-command_name_label.place(x=70, y=370)
+command_name_label.place(x=100+70, y=50+370)
 
 try:
     image_label = Image.open("/home/pi/soto_hmi/img/contact.png")
@@ -68,13 +71,13 @@ command_label = Label(app, image=render)
 command_label.bind("<Button-1>",addContact)
 command_label.configure(background='black')
 command_label.image = render
-command_label.place(x=100, y=280)
+command_label.place(x=100+100, y=50+280)
 ######################################
 
 ######################################
 command_name_label = Label(app, text="Video Llamada", font=("Helvetica", 12), fg = "white")
 command_name_label.configure(anchor="center", background='black')
-command_name_label.place(x=285, y=370)
+command_name_label.place(x=100+285, y=50+370)
 
 try:
     image_label = Image.open("/home/pi/soto_hmi/img/videocall.png")
@@ -89,13 +92,13 @@ command_label = Label(app, image=render)
 command_label.bind("<Button-1>",videoCall)
 command_label.configure(background='black')
 command_label.image = render
-command_label.place(x=300, y=280)
+command_label.place(x=100+300, y=50+280)
 ######################################
 
 ######################################
 command_name_label = Label(app, text="Juegos", font=("Helvetica", 12), fg = "white")
 command_name_label.configure(anchor="center", background='black')
-command_name_label.place(x=485, y=370)
+command_name_label.place(x=100+485, y=50+370)
 
 try:
     image_label = Image.open("/home/pi/soto_hmi/img/games.png")
@@ -110,13 +113,13 @@ command_label = Label(app, image=render)
 command_label.bind("<Button-1>",videoGame)
 command_label.configure(background='black')
 command_label.image = render
-command_label.place(x=470, y=280)
+command_label.place(x=100+470, y=50+280)
 ######################################
 
 ######################################
 command_name_label = Label(app, text="Recordatorios", font=("Helvetica", 12), fg = "white")
 command_name_label.configure(anchor="center", background='black')
-command_name_label.place(x=635, y=370)
+command_name_label.place(x=100+635, y=50+370)
 
 try:
     image_label = Image.open("/home/pi/soto_hmi/img/calendar.png")
@@ -128,32 +131,32 @@ image_label = image_label.resize((80,80))
 render = ImageTk.PhotoImage(image_label)
 
 command_label = Label(app, image=render)
-command_label.bind("<Button-1>",videoCall)
+command_label.bind("<Button-1>",calendar)
 command_label.configure(background='black')
 command_label.image = render
-command_label.place(x=650, y=280)
+command_label.place(x=100+650, y=50+280)
 ######################################
 
-######################################
-command_name_label = Label(app, text="Control de voz", font=("Helvetica", 12), fg = "white")
-command_name_label.configure(anchor="center", background='black')
-command_name_label.place(x=800, y=370)
+# ######################################
+# command_name_label = Label(app, text="Control de voz", font=("Helvetica", 12), fg = "white")
+# command_name_label.configure(anchor="center", background='black')
+# command_name_label.place(x=100+800, y=50+370)
 
-try:
-    image_label = Image.open("/home/pi/soto_hmi/img/mic.png")
-except:
-    image_label = Image.open("img/mic.png")
+# try:
+#     image_label = Image.open("/home/pi/soto_hmi/img/mic.png")
+# except:
+#     image_label = Image.open("img/mic.png")
 
-image_label = image_label.resize((60,80))
+# image_label = image_label.resize((60,80))
 
-render = ImageTk.PhotoImage(image_label)
+# render = ImageTk.PhotoImage(image_label)
 
-command_label = Label(app, image=render)
-command_label.bind("<Button-1>",videoCall)
-command_label.configure(background='black')
-command_label.image = render
-command_label.place(x=820, y=280)
-######################################
+# command_label = Label(app, image=render)
+# command_label.bind("<Button-1>",videoCall)
+# command_label.configure(background='black')
+# command_label.image = render
+# command_label.place(x=100+820, y=50+280)
+# ######################################
 
 app.mainloop()
 

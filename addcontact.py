@@ -353,7 +353,11 @@ def save():
         with open("contacts.json", 'w') as contactsFile:
             contactsFile.write(json.dumps(contactsJson))
             contactsFile.close()
-    
+
+    name.delete(0, 'end')
+    email.delete(0, 'end')
+    phone.delete(0, 'end')
+
     messagebox.showinfo("Contacto guardo con éxito", "Tu contacto ha sido guardado exitosamente.")
 
 def _exit():
