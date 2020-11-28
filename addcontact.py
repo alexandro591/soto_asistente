@@ -58,7 +58,7 @@ email.place(x=200, y=320)
 
 ###################################### TECLADO ####################################
 
-x = 550
+x = 525
 y = 220
 
 Q = Button(app, text = "Q", height = 1, width = 2)
@@ -99,6 +99,11 @@ x = x+45
 
 P = Button(app, text = "P", height = 1, width = 2)
 P.place(x=x, y=y)
+x = x+45
+
+DEL = Button(app, text = "DEL", height = 1, width = 2)
+DEL.place(x=x, y=y)
+x = x+45
 
 x = 550
 y = 250
@@ -143,10 +148,14 @@ x = x+45
 _N = Button(app, text = "Ñ", height = 1, width = 2)
 _N.place(x=x, y=y)
 
-x = 620
+x = 570
 y = 280
 
 ##############################################
+AT = Button(app, text = "@", height = 1, width = 2)
+AT.place(x=x, y=y)
+x = x+45
+
 Z = Button(app, text = "Z", height = 1, width = 2)
 Z.place(x=x, y=y)
 x = x+45
@@ -174,6 +183,29 @@ x = x+45
 M = Button(app, text = "M", height = 1, width = 2)
 M.place(x=x, y=y)
 x = x+45
+
+PT = Button(app, text = ".", height = 1, width = 2)
+PT.place(x=x, y=y)
+x = x+45
+
+x = 640
+y = 310
+
+#####################################################
+
+UPDASH = Button(app, text = "-", height = 1, width = 2)
+UPDASH.place(x=x, y=y)
+x = x+45
+
+SPACE = Button(app, text = "SPACE", height = 1, width = 20)
+SPACE.place(x=x, y=y)
+x = x+185
+
+LOWDASH = Button(app, text = "_", height = 1, width = 2)
+LOWDASH.place(x=x, y=y)
+x = x+45
+
+
 
 app.mainloop()
 
