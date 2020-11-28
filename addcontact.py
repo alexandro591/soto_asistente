@@ -143,8 +143,8 @@ x = x+45
 _N = Button(app, text = "Ñ", height = 1, width = 2)
 _N.place(x=x, y=y)
 
-x = 560
-y = 300
+x = 620
+y = 280
 
 ##############################################
 Z = Button(app, text = "Z", height = 1, width = 2)
@@ -171,8 +171,8 @@ N = Button(app, text = "N", height = 1, width = 2)
 N.place(x=x, y=y)
 x = x+45
 
-N = Button(app, text = "N", height = 1, width = 2)
-N.place(x=x, y=y)
+M = Button(app, text = "M", height = 1, width = 2)
+M.place(x=x, y=y)
 x = x+45
 
 app.mainloop()
