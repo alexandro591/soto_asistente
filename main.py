@@ -24,7 +24,7 @@ def videoCall(e):
             subprocess.check_call('sensible-browser videocall.html'.split(" "))
     except:
         subprocess.check_call('sensible-browser videocall.html'.split(" "))
-    subprocess.check_call('pkill python'.split(" "))
+    subprocess.call('pkill python'.split(" "))
 def calendar(e):
     subprocess.check_call('sensible-browser https://www.google.com/calendar'.split(" "))
 
