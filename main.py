@@ -18,8 +18,8 @@ def videoGame(e):
         subprocess.check_call('python3 tic-tac-toe/main.py'.split(" "))
 def videoCall(e):
     try:
-        if path.exists("/home/pi/soto_hmi/tic-tac-toe/videocall.html"):
-            subprocess.check_call('sensible-browser /home/pi/soto_hmi/tic-tac-toe/videocall.html'.split(" "))
+        if path.exists("/home/pi/soto_hmi/videocall.html"):
+            subprocess.check_call('sensible-browser /home/pi/soto_hmi/videocall.html'.split(" "))
         else:
             subprocess.check_call('sensible-browser videocall.html'.split(" "))
     except:
