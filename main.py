@@ -7,9 +7,14 @@ H = 532
 
 def addContact(e):
     try:
-        subprocess.call('python3 /home/pi/soto_hmi/addcontact.py'.split(" "))
+        subprocess.check_call('python3 /home/pi/soto_hmi/addcontact.py'.split(" "))
     except:
-        subprocess.call('python3 addcontact.py'.split(" "))
+        subprocess.check_call('python3 addcontact.py'.split(" "))
+def videoGame(e):
+    try:
+        subprocess.check_call('python3 /home/pi/soto_hmi/tic-tac-toe/main.py'.split(" "))
+    except:
+        subprocess.check_call('python3 tic-tac-toe/main.py'.split(" "))
 def videoCall(e):
     print("hello2")
 
@@ -95,7 +100,7 @@ image_label = image_label.resize((78,80))
 render = ImageTk.PhotoImage(image_label)
 
 command_label = Label(app, image=render)
-command_label.bind("<Button-1>",videoCall)
+command_label.bind("<Button-1>",videoGame)
 command_label.configure(background='black')
 command_label.image = render
 command_label.place(x=470, y=280)
