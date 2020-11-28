@@ -58,9 +58,9 @@ email.place(x=200, y=320)
 
 ###################################### TECLADO ####################################
 
-Q = Button(app, text = "Q", height = 2, width = 4)
+Q = Button(app, text = "Q", height = 1, width = 2)
 Q.place(x=600, y=220)
-Q = Button(app, text = "W", height = 2, width = 4)
+Q = Button(app, text = "W", height = 1, width = 2)
 Q.place(x=645, y=220)
 
 app.mainloop()
