@@ -131,7 +131,7 @@ Q = Button(app, text = "Q", height = 1, width = 2, command = lambda : write("q")
 Q.place(x=x, y=y)
 x = x+45
 
-W = Button(app, text = "W", height = 1, width = 2, command = lambda : write("W"))
+W = Button(app, text = "W", height = 1, width = 2, command = lambda : write("w"))
 W.place(x=x, y=y)
 x = x+45
 
@@ -286,7 +286,13 @@ phone_radio.place(x=200, y=430)
 email_radio = Radiobutton(app, text = "Modificar email", width = 20, variable=selection, value=2)
 email_radio.place(x=200, y=460)
 
+###########################################################
 
+save = Button(app, text = "Guardar", height = 1, width = 20, command = lambda : save())
+save.place(x=680, y=400)
+
+_exit = Button(app, text = "Salir", height = 1, width = 20, command = lambda : _exit())
+_exit.place(x=680, y=400)
 
 app.mainloop()
 
