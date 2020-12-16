@@ -8,7 +8,7 @@ H = 180
 
 root = Tk()
 root.title("Soto asistente")
-root.geometry(str(W)+'x'+str(H)+"+310+200")
+root.geometry(str(W)+'x'+str(H)+"+720+0")
 root.attributes("-topmost", True)
 try:
     img = ImageTk.PhotoImage(Image.open("faces/normal.png").resize((W, H), Image.ANTIALIAS))
