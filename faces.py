@@ -3,8 +3,8 @@ from tkinter import *
 from PIL import Image, ImageTk
 from os import path
 
-W = 250
-H = 120
+W = 300
+H = 180
 
 root = Tk()
 try:
