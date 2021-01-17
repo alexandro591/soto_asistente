@@ -20,6 +20,8 @@ class Tic_Tac_Toe():
     def __init__(self):
         self.window = Tk()
         self.window.title('Tres en raya')
+        self.window.geometry(str(size_of_board)+'x'+str(size_of_board)+"+200+0")
+        
         self.canvas = Canvas(self.window, width=size_of_board, height=size_of_board)
         self.canvas.pack()
         # Input from user in form of clicks
@@ -211,4 +213,8 @@ class Tic_Tac_Toe():
 
 
 game_instance = Tic_Tac_Toe()
+
+game_instance.window.attributes('-topmost', True)
+game_instance.window.update()
+game_instance.window.attributes('-topmost', False)
 game_instance.mainloop()
