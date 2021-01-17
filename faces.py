@@ -4,12 +4,12 @@ from tkinter import *
 from PIL import Image, ImageTk
 from os import path
 
-W = 380
-H = 280
+W = 410
+H = 300
 
 root = Tk()
 root.title("Soto asistente")
-root.geometry(str(W)+'x'+str(H)+"+360+150")
+root.geometry(str(W)+'x'+str(H)+"+330+0")
 root.attributes("-topmost", True)
 try:
     img = ImageTk.PhotoImage(Image.open("faces/"+sys.argv[1]+".png").resize((W, H), Image.ANTIALIAS))
