@@ -4,8 +4,8 @@ from tkinter import *
 from PIL import Image, ImageTk
 from os import path
 
-W = 410
-H = 300
+W = 320
+H = 230
 
 root = Tk()
 root.title("Soto asistente")
